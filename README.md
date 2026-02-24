@@ -1,4 +1,4 @@
-# 🛒 GroceryHelper
+# GroceryHelper
 
 O GroceryHelper é uma aplicação web criada para ajudar famílias a organizarem suas compras domésticas de forma simples, inteligente e eficiente.
 
@@ -6,7 +6,7 @@ A aplicação permite controlar os itens da casa, identificar o que está acaban
 
 ---
 
-# 📌 Domínio do Problema
+# Domínio do Problema
 
 Gerenciar as compras de casa é uma tarefa recorrente e, muitas vezes, desorganizada. Entre os principais problemas enfrentados pelas famílias estão:
 
@@ -29,7 +29,7 @@ O GroceryHelper propõe transformar a gestão de compras em algo mais inteligent
 
 ---
 
-# 🎯 Objetivo do Projeto
+# Objetivo do Projeto
 
 Desenvolver uma aplicação web que:
 
@@ -43,7 +43,7 @@ Desenvolver uma aplicação web que:
 
 ---
 
-# 👥 Público-Alvo
+# Público-Alvo
 
 - Famílias
 - Casais
@@ -53,7 +53,7 @@ Desenvolver uma aplicação web que:
 
 ---
 
-# 🧠 Funcionalidades Principais (Planejadas)
+# Funcionalidades Principais (Planejadas)
 
 ## 1. Gestão de Despensa
 - Cadastro de itens
@@ -132,7 +132,7 @@ Desenvolver uma aplicação web que:
 
 ---
 
-# 🔄 Fluxos Principais
+# Fluxos Principais
 
 ## 1. Cadastro de Itens
 Usuário adiciona itens após a compra.
@@ -165,7 +165,7 @@ Sistema sugere automaticamente itens a serem comprados.
 
 ---
 
-# 🚀 Evoluções Futuras
+# Evoluções Futuras
 
 - Leitura de código de barras
 - Leitura automática de notas fiscais (OCR)
@@ -177,12 +177,12 @@ Sistema sugere automaticamente itens a serem comprados.
 
 ---
 
-# 💡 Visão do Produto
+# Visão do Produto
 
 O GroceryHelper busca se tornar um assistente doméstico inteligente, reduzindo desperdícios, melhorando o planejamento das compras e ajudando famílias a economizar tempo e dinheiro.
 
 ---
 
-# 📄 Licença
+# Licença
 
 MIT
