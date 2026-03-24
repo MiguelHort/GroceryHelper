@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  serverExternalPackages: ['@prisma/client', 'bcryptjs', '@libsql/client', '@prisma/adapter-libsql'],
+  allowedDevOrigins: ['192.168.0.108'],
+}
 
-export default nextConfig;
+export default nextConfig
