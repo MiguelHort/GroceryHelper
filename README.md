@@ -1,5 +1,55 @@
 # GroceryHelper
 
+## Como Rodar o Projeto
+
+### Pré-requisitos
+- [Node.js](https://nodejs.org/) v18 ou superior
+- npm (incluído com o Node.js)
+
+### Instalação
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/MiguelHort/GroceryHelper.git
+cd GroceryHelper
+
+# 2. Instale as dependências
+npm install
+
+# 3. Configure as variáveis de ambiente
+cp .env.example .env
+
+# 4. Crie o banco de dados (SQLite local)
+npm run db:push
+
+# 5. (Opcional) Popule com dados de exemplo
+npm run db:seed
+```
+
+### Executar
+
+```bash
+# Modo desenvolvimento
+npm run dev
+```
+
+Acesse em: [http://localhost:3000](http://localhost:3000)
+
+**Credenciais de teste** (após rodar o seed):
+- Email: `admin@test.com` — Senha: `123456`
+- Email: `member@test.com` — Senha: `123456`
+
+---
+
+## Stack Técnica
+
+- **Framework:** Next.js 16 (App Router)
+- **Banco de dados:** SQLite via Prisma 7 + libsql
+- **Autenticação:** NextAuth v5 (Auth.js)
+- **Estilização:** Tailwind CSS v4
+
+---
+
 O GroceryHelper é uma aplicação web criada para ajudar famílias a organizarem suas compras domésticas de forma simples, inteligente e eficiente.
 
 A aplicação permite controlar os itens da casa, identificar o que está acabando, sugerir compras automaticamente e destacar produtos que estão em uma boa época para comprar.
