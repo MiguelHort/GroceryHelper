@@ -91,13 +91,13 @@ export function ShoppingListClient({ shoppingList: initialList }: ShoppingListCl
     return (
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Lista de Compras</h1>
-          <p className="text-gray-500 mt-1">Nenhuma lista ativa</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Lista de Compras</h1>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">Nenhuma lista ativa</p>
         </div>
         <div className="text-center py-16">
           <span className="text-5xl">🛒</span>
-          <p className="text-gray-600 mt-4 text-lg font-medium">Nenhuma lista de compras ativa</p>
-          <p className="text-gray-500 mt-1 text-sm">Crie uma lista com os itens em falta automaticamente</p>
+          <p className="text-gray-600 dark:text-gray-300 mt-4 text-lg font-medium">Nenhuma lista de compras ativa</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm">Crie uma lista com os itens em falta automaticamente</p>
           <Button className="mt-6" disabled={isCreating} onClick={createList}>
             {isCreating ? 'Criando...' : 'Criar Lista Automaticamente'}
           </Button>
@@ -114,8 +114,8 @@ export function ShoppingListClient({ shoppingList: initialList }: ShoppingListCl
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Lista de Compras</h1>
-          <p className="text-gray-500 mt-1">{boughtItems.length} de {list.items.length} itens comprados</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Lista de Compras</h1>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">{boughtItems.length} de {list.items.length} itens comprados</p>
         </div>
         <Button variant="outline" onClick={completeList} disabled={isCompleting || list.items.length === 0}>
           {isCompleting ? 'Finalizando...' : '✅ Finalizar Lista'}
@@ -125,10 +125,10 @@ export function ShoppingListClient({ shoppingList: initialList }: ShoppingListCl
       <Card>
         <CardContent className="pt-4 pb-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-600">Progresso</span>
-            <span className="text-sm font-medium text-gray-900">{Math.round(progress)}%</span>
+            <span className="text-sm text-gray-600 dark:text-gray-400">Progresso</span>
+            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{Math.round(progress)}%</span>
           </div>
-          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
             <div className="h-full bg-green-500 rounded-full transition-all duration-300" style={{ width: `${progress}%` }} />
           </div>
         </CardContent>
@@ -167,15 +167,15 @@ export function ShoppingListClient({ shoppingList: initialList }: ShoppingListCl
                 {pendingItems.map((item) => (
                   <div
                     key={item.id}
-                    className={`flex items-center gap-3 py-2 border-b border-gray-100 last:border-0 cursor-pointer hover:bg-gray-50 rounded-lg px-2 transition-colors ${isToggling ? 'opacity-70' : ''}`}
+                    className={`flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-700 last:border-0 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg px-2 transition-colors ${isToggling ? 'opacity-70' : ''}`}
                     onClick={() => toggleItem(item.id, item.status)}
                   >
-                    <div className="w-5 h-5 rounded border-2 border-gray-300 flex-shrink-0" />
+                    <div className="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900">{item.name}</p>
-                      {item.notes && <p className="text-xs text-gray-500">{item.notes}</p>}
+                      <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{item.name}</p>
+                      {item.notes && <p className="text-xs text-gray-500 dark:text-gray-400">{item.notes}</p>}
                     </div>
-                    <span className="text-sm text-gray-500 flex-shrink-0">{item.quantity} {item.unit}</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400 flex-shrink-0">{item.quantity} {item.unit}</span>
                   </div>
                 ))}
               </div>
@@ -196,7 +196,7 @@ export function ShoppingListClient({ shoppingList: initialList }: ShoppingListCl
                 {boughtItems.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center gap-3 py-2 border-b border-gray-100 last:border-0 cursor-pointer hover:bg-gray-50 rounded-lg px-2 transition-colors"
+                    className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-700 last:border-0 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg px-2 transition-colors"
                     onClick={() => toggleItem(item.id, item.status)}
                   >
                     <div className="w-5 h-5 rounded border-2 border-green-500 bg-green-500 flex-shrink-0 flex items-center justify-center">
@@ -204,8 +204,8 @@ export function ShoppingListClient({ shoppingList: initialList }: ShoppingListCl
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <p className="text-sm text-gray-400 line-through flex-1">{item.name}</p>
-                    <span className="text-sm text-gray-400 flex-shrink-0">{item.quantity} {item.unit}</span>
+                    <p className="text-sm text-gray-400 dark:text-gray-500 line-through flex-1">{item.name}</p>
+                    <span className="text-sm text-gray-400 dark:text-gray-500 flex-shrink-0">{item.quantity} {item.unit}</span>
                   </div>
                 ))}
               </div>
@@ -215,7 +215,7 @@ export function ShoppingListClient({ shoppingList: initialList }: ShoppingListCl
 
         {list.items.length === 0 && (
           <div className="text-center py-8">
-            <p className="text-gray-500">Nenhum item na lista. Adicione acima.</p>
+            <p className="text-gray-500 dark:text-gray-400">Nenhum item na lista. Adicione acima.</p>
           </div>
         )}
       </div>

@@ -40,7 +40,7 @@ export function EditItemForm({ item, onSuccess, onCancel }: EditItemFormProps) {
   return (
     <form action={formAction} className="space-y-4">
       {state && 'error' in state && (
-        <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
+        <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-lg text-sm">
           {state.error}
         </div>
       )}

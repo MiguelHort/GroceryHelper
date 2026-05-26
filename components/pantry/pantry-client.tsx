@@ -88,8 +88,8 @@ export function PantryClient({ items: initialItems, category, filter, search }: 
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Despensa</h1>
-          <p className="text-gray-500 mt-1">{filteredItems.length} de {items.length} itens</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Despensa</h1>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">{filteredItems.length} de {items.length} itens</p>
         </div>
         <Link href="/pantry/new">
           <Button>+ Adicionar Item</Button>
@@ -124,7 +124,7 @@ export function PantryClient({ items: initialItems, category, filter, search }: 
       {filteredItems.length === 0 ? (
         <div className="text-center py-16">
           <span className="text-5xl">📦</span>
-          <p className="text-gray-500 mt-4 text-lg">Nenhum item encontrado</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-4 text-lg">Nenhum item encontrado</p>
           <Link href="/pantry/new" className="mt-4 inline-block">
             <Button variant="outline">Adicionar primeiro item</Button>
           </Link>
@@ -143,8 +143,8 @@ export function PantryClient({ items: initialItems, category, filter, search }: 
                     <div className="flex items-center gap-2 flex-1 min-w-0">
                       <span className="text-2xl flex-shrink-0">{getCategoryEmoji(item.category)}</span>
                       <div className="min-w-0">
-                        <p className="font-semibold text-gray-900 truncate">{item.name}</p>
-                        <p className="text-xs text-gray-500">{getCategoryLabel(item.category)}</p>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100 truncate">{item.name}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{getCategoryLabel(item.category)}</p>
                       </div>
                     </div>
                     <Badge variant={stockBadgeVariant[status]} className="flex-shrink-0 ml-2">
@@ -154,25 +154,25 @@ export function PantryClient({ items: initialItems, category, filter, search }: 
 
                   <div className="mt-3 space-y-1">
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-500">Quantidade</span>
+                      <span className="text-gray-500 dark:text-gray-400">Quantidade</span>
                       <span className={`font-semibold ${stockStatusColor[status]}`}>
                         {item.quantity} {item.unit}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-500">Mínimo</span>
-                      <span className="text-gray-700">{item.minQuantity} {item.unit}</span>
+                      <span className="text-gray-500 dark:text-gray-400">Mínimo</span>
+                      <span className="text-gray-700 dark:text-gray-300">{item.minQuantity} {item.unit}</span>
                     </div>
                     {item.expiryDate && (
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-500">Validade</span>
+                        <span className="text-gray-500 dark:text-gray-400">Validade</span>
                         <span className={expired ? 'text-red-600 font-semibold' : expiringSoon ? 'text-orange-600 font-semibold' : 'text-gray-700'}>
                           {expired ? '⚠️ ' : expiringSoon ? '⏰ ' : ''}{formatDate(item.expiryDate)}
                         </span>
                       </div>
                     )}
                     <div className="mt-2">
-                      <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                         <div
                           className={`h-full rounded-full transition-all ${status === 'critical' ? 'bg-red-500' : status === 'low' ? 'bg-yellow-500' : 'bg-green-500'}`}
                           style={{ width: `${Math.min(100, (item.quantity / (item.minQuantity * 2)) * 100)}%` }}
@@ -191,7 +191,7 @@ export function PantryClient({ items: initialItems, category, filter, search }: 
                     <Button
                       size="sm"
                       variant="outline"
-                      className="text-red-600 hover:bg-red-50 text-xs px-2"
+                      className="text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 text-xs px-2"
                       onClick={() => setDeleteItem(item)}
                     >
                       🗑️

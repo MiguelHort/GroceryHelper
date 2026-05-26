@@ -40,8 +40,8 @@ export function HouseholdClient({ household, members, currentUserId, currentUser
     return (
       <div className="space-y-6 max-w-lg">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Domicílio</h1>
-          <p className="text-gray-500 mt-1">Você ainda não faz parte de um domicílio</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Domicílio</h1>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">Você ainda não faz parte de um domicílio</p>
         </div>
 
         <Card>
@@ -51,7 +51,7 @@ export function HouseholdClient({ household, members, currentUserId, currentUser
           <CardContent>
             <form action={createAction} className="space-y-4">
               {createState?.error && (
-                <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
+                <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-lg text-sm">
                   {createState.error}
                 </div>
               )}
@@ -70,10 +70,10 @@ export function HouseholdClient({ household, members, currentUserId, currentUser
 
         <div className="relative">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300" />
+            <div className="w-full border-t border-gray-300 dark:border-gray-600" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="bg-gray-50 px-2 text-gray-500">ou</span>
+            <span className="bg-gray-50 dark:bg-gray-900 px-2 text-gray-500 dark:text-gray-400">ou</span>
           </div>
         </div>
 
@@ -84,7 +84,7 @@ export function HouseholdClient({ household, members, currentUserId, currentUser
           <CardContent>
             <form action={joinAction} className="space-y-4">
               {joinState?.error && (
-                <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
+                <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-lg text-sm">
                   {joinState.error}
                 </div>
               )}
@@ -107,8 +107,8 @@ export function HouseholdClient({ household, members, currentUserId, currentUser
   return (
     <div className="space-y-6 max-w-2xl">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Domicílio</h1>
-        <p className="text-gray-500 mt-1">Gerencie seu domicílio e membros</p>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Domicílio</h1>
+        <p className="text-gray-500 dark:text-gray-400 mt-1">Gerencie seu domicílio e membros</p>
       </div>
 
       <Card>
@@ -117,24 +117,24 @@ export function HouseholdClient({ household, members, currentUserId, currentUser
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <p className="text-sm text-gray-500">Nome</p>
-            <p className="text-lg font-semibold text-gray-900">{household.name}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Nome</p>
+            <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">{household.name}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-500 mb-1">Código de convite</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Código de convite</p>
             <div className="flex items-center gap-2">
-              <code className="flex-1 bg-gray-100 px-3 py-2 rounded-lg text-sm font-mono text-gray-900">
+              <code className="flex-1 bg-gray-100 dark:bg-gray-700 px-3 py-2 rounded-lg text-sm font-mono text-gray-900 dark:text-gray-100">
                 {household.inviteCode}
               </code>
               <Button variant="outline" size="sm" onClick={copyInviteCode}>
                 {copied ? '✓ Copiado!' : '📋 Copiar'}
               </Button>
             </div>
-            <p className="text-xs text-gray-400 mt-1">Compartilhe este código para convidar membros</p>
+            <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">Compartilhe este código para convidar membros</p>
           </div>
           <div>
-            <p className="text-sm text-gray-500">Criado em</p>
-            <p className="text-sm text-gray-900">{formatDate(household.createdAt)}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Criado em</p>
+            <p className="text-sm text-gray-900 dark:text-gray-100">{formatDate(household.createdAt)}</p>
           </div>
         </CardContent>
       </Card>
@@ -149,18 +149,18 @@ export function HouseholdClient({ household, members, currentUserId, currentUser
         <CardContent>
           <div className="space-y-3">
             {members.map((member) => (
-              <div key={member.id} className="flex items-center gap-3 py-2 border-b border-gray-100 last:border-0">
-                <div className="h-9 w-9 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-semibold text-sm flex-shrink-0">
+              <div key={member.id} className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
+                <div className="h-9 w-9 rounded-full bg-green-100 dark:bg-green-900/40 flex items-center justify-center text-green-700 dark:text-green-400 font-semibold text-sm flex-shrink-0">
                   {member.name[0].toUpperCase()}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <p className="text-sm font-medium text-gray-900 truncate">{member.name}</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">{member.name}</p>
                     {member.id === currentUserId && (
                       <Badge variant="outline" className="text-xs">Você</Badge>
                     )}
                   </div>
-                  <p className="text-xs text-gray-500 truncate">{member.email}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{member.email}</p>
                 </div>
                 <Badge variant={member.role === 'admin' ? 'default' : 'secondary'}>
                   {member.role === 'admin' ? 'Admin' : 'Membro'}
@@ -178,7 +178,7 @@ export function HouseholdClient({ household, members, currentUserId, currentUser
         <CardContent>
           <form action={joinAction} className="space-y-3">
             {joinState?.error && (
-              <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
+              <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-lg text-sm">
                 {joinState.error}
               </div>
             )}

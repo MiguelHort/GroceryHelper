@@ -50,8 +50,8 @@ export default async function HistoryPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Histórico</h1>
-        <p className="text-gray-500 mt-1">Registro de compras e consumos</p>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Histórico</h1>
+        <p className="text-gray-500 dark:text-gray-400 mt-1">Registro de compras e consumos</p>
       </div>
 
       {/* Stats */}
@@ -61,7 +61,7 @@ export default async function HistoryPage() {
             <p className="text-2xl font-bold text-green-600">
               {history.filter((h) => h.action === 'purchase').length}
             </p>
-            <p className="text-xs text-gray-500 mt-1">Compras</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Compras</p>
           </CardContent>
         </Card>
         <Card>
@@ -69,7 +69,7 @@ export default async function HistoryPage() {
             <p className="text-2xl font-bold text-blue-600">
               {history.filter((h) => h.action === 'consumption').length}
             </p>
-            <p className="text-xs text-gray-500 mt-1">Consumos</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Consumos</p>
           </CardContent>
         </Card>
         <Card>
@@ -77,7 +77,7 @@ export default async function HistoryPage() {
             <p className="text-2xl font-bold text-gray-600">
               {history.filter((h) => h.action === 'adjustment').length}
             </p>
-            <p className="text-xs text-gray-500 mt-1">Ajustes</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Ajustes</p>
           </CardContent>
         </Card>
       </div>
@@ -97,7 +97,7 @@ export default async function HistoryPage() {
           ) : (
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200" />
+              <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700" />
 
               <div className="space-y-4">
                 {history.map((entry) => {
@@ -108,35 +108,35 @@ export default async function HistoryPage() {
                     <div key={entry.id} className="flex gap-4 relative">
                       {/* Icon */}
                       <div className={`relative z-10 flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 border-white shadow-sm ${
-                        entry.action === 'purchase' ? 'bg-green-100' :
-                        entry.action === 'consumption' ? 'bg-blue-100' : 'bg-gray-100'
+                        entry.action === 'purchase' ? 'bg-green-100 dark:bg-green-900/40' :
+                        entry.action === 'consumption' ? 'bg-blue-100 dark:bg-blue-900/40' : 'bg-gray-100 dark:bg-gray-700'
                       }`}>
                         {config.symbol}
                       </div>
 
                       {/* Content */}
-                      <div className="flex-1 min-w-0 pb-4 border-b border-gray-100 last:border-0">
+                      <div className="flex-1 min-w-0 pb-4 border-b border-gray-100 dark:border-gray-700 last:border-0">
                         <div className="flex items-start justify-between gap-2">
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <span className="text-sm font-medium text-gray-900">
+                              <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
                                 {getCategoryEmoji(entry.item.category)} {entry.item.name}
                               </span>
                               <Badge variant={config.badge} className="text-xs">
                                 {config.label}
                               </Badge>
                             </div>
-                            <p className="text-xs text-gray-500 mt-0.5">
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                               {entry.oldQuantity} → {entry.newQuantity} {entry.item.unit}
                               <span className={`ml-1 font-medium ${diff > 0 ? 'text-green-600' : diff < 0 ? 'text-red-600' : 'text-gray-500'}`}>
                                 ({diff > 0 ? '+' : ''}{diff} {entry.item.unit})
                               </span>
                             </p>
                             {entry.user && (
-                              <p className="text-xs text-gray-400 mt-0.5">por {entry.user.name}</p>
+                              <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">por {entry.user.name}</p>
                             )}
                           </div>
-                          <p className="text-xs text-gray-400 flex-shrink-0">
+                          <p className="text-xs text-gray-400 dark:text-gray-500 flex-shrink-0">
                             {formatDateTime(entry.createdAt)}
                           </p>
                         </div>

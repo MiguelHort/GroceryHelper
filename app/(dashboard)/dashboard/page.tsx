@@ -52,10 +52,10 @@ export default async function DashboardPage() {
     <div className="space-y-6">
       {/* Welcome */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
           Olá, {session.user?.name?.split(' ')[0]}! 👋
         </h1>
-        <p className="text-gray-500 mt-1">
+        <p className="text-gray-500 dark:text-gray-400 mt-1">
           {household?.name} • {new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' })}
         </p>
       </div>
@@ -64,31 +64,31 @@ export default async function DashboardPage() {
       {(criticalItems.length > 0 || expiredItems.length > 0) && (
         <div className="space-y-2">
           {criticalItems.length > 0 && (
-            <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 flex items-center gap-3">
+            <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg px-4 py-3 flex items-center gap-3">
               <span className="text-xl">🚨</span>
               <div>
-                <p className="font-medium text-red-800">Itens em falta crítica</p>
-                <p className="text-sm text-red-600">
+                <p className="font-medium text-red-800 dark:text-red-300">Itens em falta crítica</p>
+                <p className="text-sm text-red-600 dark:text-red-400">
                   {criticalItems.slice(0, 3).map((i) => i.name).join(', ')}
                   {criticalItems.length > 3 && ` e mais ${criticalItems.length - 3}`}
                 </p>
               </div>
-              <Link href="/pantry" className="ml-auto text-sm text-red-700 font-medium hover:underline">
+              <Link href="/pantry" className="ml-auto text-sm text-red-700 dark:text-red-400 font-medium hover:underline">
                 Ver
               </Link>
             </div>
           )}
           {expiredItems.length > 0 && (
-            <div className="bg-orange-50 border border-orange-200 rounded-lg px-4 py-3 flex items-center gap-3">
+            <div className="bg-orange-50 dark:bg-orange-900/30 border border-orange-200 dark:border-orange-800 rounded-lg px-4 py-3 flex items-center gap-3">
               <span className="text-xl">⚠️</span>
               <div>
-                <p className="font-medium text-orange-800">Itens vencidos</p>
-                <p className="text-sm text-orange-600">
+                <p className="font-medium text-orange-800 dark:text-orange-300">Itens vencidos</p>
+                <p className="text-sm text-orange-600 dark:text-orange-400">
                   {expiredItems.slice(0, 3).map((i) => i.name).join(', ')}
                   {expiredItems.length > 3 && ` e mais ${expiredItems.length - 3}`}
                 </p>
               </div>
-              <Link href="/pantry" className="ml-auto text-sm text-orange-700 font-medium hover:underline">
+              <Link href="/pantry" className="ml-auto text-sm text-orange-700 dark:text-orange-400 font-medium hover:underline">
                 Ver
               </Link>
             </div>
@@ -102,7 +102,7 @@ export default async function DashboardPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-500">Total de Itens</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Total de Itens</p>
                 <p className="text-3xl font-bold text-gray-900 mt-1">{totalItems}</p>
               </div>
               <span className="text-3xl">🥫</span>
@@ -114,8 +114,8 @@ export default async function DashboardPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-500">Estoque Baixo</p>
-                <p className={`text-3xl font-bold mt-1 ${lowStockItems.length > 0 ? 'text-yellow-600' : 'text-gray-900'}`}>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Estoque Baixo</p>
+                <p className={`text-3xl font-bold mt-1 ${lowStockItems.length > 0 ? 'text-yellow-600' : 'text-gray-900 dark:text-gray-100'}`}>
                   {lowStockItems.length + criticalItems.length}
                 </p>
               </div>
@@ -128,8 +128,8 @@ export default async function DashboardPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-500">A Vencer em 7d</p>
-                <p className={`text-3xl font-bold mt-1 ${expiringSoonItems.length > 0 ? 'text-orange-600' : 'text-gray-900'}`}>
+                <p className="text-sm text-gray-500 dark:text-gray-400">A Vencer em 7d</p>
+                <p className={`text-3xl font-bold mt-1 ${expiringSoonItems.length > 0 ? 'text-orange-600' : 'text-gray-900 dark:text-gray-100'}`}>
                   {expiringSoonItems.length}
                 </p>
               </div>
@@ -142,14 +142,14 @@ export default async function DashboardPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-500">Lista de Compras</p>
-                <p className={`text-3xl font-bold mt-1 ${pendingShoppingItems > 0 ? 'text-green-600' : 'text-gray-900'}`}>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Lista de Compras</p>
+                <p className={`text-3xl font-bold mt-1 ${pendingShoppingItems > 0 ? 'text-green-600' : 'text-gray-900 dark:text-gray-100'}`}>
                   {pendingShoppingItems}
                 </p>
               </div>
               <span className="text-3xl">🛒</span>
             </div>
-            <p className="text-xs text-gray-400 mt-1">itens pendentes</p>
+            <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">itens pendentes</p>
           </CardContent>
         </Card>
       </div>
@@ -173,11 +173,11 @@ export default async function DashboardPage() {
                 {[...criticalItems, ...lowStockItems].slice(0, 5).map((item) => {
                   const status = getStockStatus(item.quantity, item.minQuantity)
                   return (
-                    <div key={item.id} className="flex items-center gap-3 py-2 border-b border-gray-100 last:border-0">
+                    <div key={item.id} className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
                       <span className="text-xl">{getCategoryEmoji(item.category)}</span>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900 truncate">{item.name}</p>
-                        <p className="text-xs text-gray-500">{item.quantity} {item.unit} (mín: {item.minQuantity})</p>
+                        <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">{item.name}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{item.quantity} {item.unit} (mín: {item.minQuantity})</p>
                       </div>
                       <Badge variant={status === 'critical' ? 'destructive' : 'warning'}>
                         {status === 'critical' ? 'Crítico' : 'Baixo'}
@@ -206,11 +206,11 @@ export default async function DashboardPage() {
             ) : (
               <div className="space-y-2">
                 {seasonalProducts.map((product) => (
-                  <div key={product.id} className="flex items-center gap-3 py-2 border-b border-gray-100 last:border-0">
+                  <div key={product.id} className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
                     <span className="text-xl">🌿</span>
                     <div className="flex-1">
                       <p className="text-sm font-medium text-gray-900">{product.product}</p>
-                      <p className="text-xs text-gray-500">{product.region} • {product.description}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">{product.region} • {product.description}</p>
                     </div>
                     <Badge variant="success">Em safra</Badge>
                   </div>
@@ -229,11 +229,11 @@ export default async function DashboardPage() {
             <CardContent>
               <div className="space-y-2">
                 {expiringSoonItems.slice(0, 5).map((item) => (
-                  <div key={item.id} className="flex items-center gap-3 py-2 border-b border-gray-100 last:border-0">
+                  <div key={item.id} className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
                     <span className="text-xl">{getCategoryEmoji(item.category)}</span>
                     <div className="flex-1">
                       <p className="text-sm font-medium text-gray-900">{item.name}</p>
-                      <p className="text-xs text-gray-500">Vence: {formatDate(item.expiryDate)}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">Vence: {formatDate(item.expiryDate)}</p>
                     </div>
                     <Badge variant="warning">Em breve</Badge>
                   </div>
@@ -257,22 +257,22 @@ export default async function DashboardPage() {
             <CardContent>
               <div className="space-y-2">
                 {shoppingList.items.slice(0, 5).map((item) => (
-                  <div key={item.id} className="flex items-center gap-3 py-2 border-b border-gray-100 last:border-0">
-                    <span className={`w-4 h-4 rounded border-2 flex-shrink-0 ${item.status === 'bought' ? 'bg-green-500 border-green-500' : 'border-gray-300'}`}>
+                  <div key={item.id} className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
+                    <span className={`w-4 h-4 rounded border-2 flex-shrink-0 ${item.status === 'bought' ? 'bg-green-500 border-green-500' : 'border-gray-300 dark:border-gray-600'}`}>
                       {item.status === 'bought' && (
                         <svg className="w-3 h-3 text-white m-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       )}
                     </span>
-                    <p className={`text-sm flex-1 ${item.status === 'bought' ? 'line-through text-gray-400' : 'text-gray-900'}`}>
+                    <p className={`text-sm flex-1 ${item.status === 'bought' ? 'line-through text-gray-400 dark:text-gray-500' : 'text-gray-900 dark:text-gray-100'}`}>
                       {item.name}
                     </p>
-                    <span className="text-xs text-gray-400">{item.quantity} {item.unit}</span>
+                    <span className="text-xs text-gray-400 dark:text-gray-500">{item.quantity} {item.unit}</span>
                   </div>
                 ))}
                 {shoppingList.items.length > 5 && (
-                  <p className="text-xs text-gray-500 text-center pt-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 text-center pt-1">
                     +{shoppingList.items.length - 5} mais itens
                   </p>
                 )}
